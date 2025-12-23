@@ -1,0 +1,9 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of formControls();trackBy: trackByName">
+        <label [for]="field.controlname">{{ field.label }}</label>
+        <input [id]="field.controlname" [formControlName]="field.controlname" [type]="field.type" />
+    </div>
+    <input type="submit" value="Submit" />
+
+    {{this.myForm.value | json}}
+</form>

@@ -1,0 +1,18 @@
+<form [formGroup]="myForm">
+    <div formArrayName="items">
+        <div *ngFor="let item of items.controls; let i = index" [formGroupName]="i">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="name-{{ i }}">Name:</label>
+                    <input id="name-{{ i }}" formControlName="name" />
+                </div>
+                <div class="form-group">
+                    <label for="quantity-{{ i }}">Quantity:</label>
+                    <input id="quantity-{{ i }}" formControlName="quantity" type="number" />
+                </div>
+            </div>
+            <button type="button" (click)="removeItem(i)">Remove Last Item</button>
+        </div>
+    </div>
+    <button type="button" (click)="addItem()">Add Item</button>
+</form>

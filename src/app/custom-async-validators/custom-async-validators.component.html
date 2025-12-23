@@ -1,0 +1,13 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let field of buildForm();trackBy: trackByName">
+        <label [for]="field.control">{{field.label}}</label>
+        <input [id]="field.control" [formControlName]="field.control" [type]="field.type || 'text'" />
+
+        <div *ngIf="field.control==='email' && myForm.get('email')?.errors?.['emailExists']">
+            Email already exists!
+        </div>
+    </div>
+    <input type="submit" value="Submit" />
+
+    {{this.myForm.value | json}}
+</form>
