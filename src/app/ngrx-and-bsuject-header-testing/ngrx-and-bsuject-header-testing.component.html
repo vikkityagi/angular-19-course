@@ -1,0 +1,11 @@
+<header class="app-header">
+  <h2 *ngIf="service.signaluser() as signaluser">{{ signaluser.name}}</h2>
+
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/">About</a>
+    <a routerLink="/">Contact</a>
+    <input type="button" (click)="login()" value="Behaviour Login"> 
+    <input type="button" (click)="logout()" value="Behaviour Logout"> 
+  </nav>
+</header>

@@ -1,0 +1,12 @@
+<footer class="app-footer">
+  <p *ngIf="service.user$ | async as user; else guest">{{ user.name }}</p>
+    <ng-template #guest>
+        <p>Guest User</p>   
+    </ng-template>
+
+  <span class="copyright">
+    © {{ year }} Your Application Name
+  </span>
+
+  <input type="button" (click)="login()" value="Behaviour Login">   
+</footer>
