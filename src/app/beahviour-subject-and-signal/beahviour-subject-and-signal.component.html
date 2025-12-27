@@ -1,0 +1,53 @@
+<div class="grid-container">
+    <div class="grid-item">
+        <form [formGroup]="myForm1" (ngSubmit)="onSubmit()">
+            <div *ngFor="let item of buildForm();trackBy: trackByName">
+                <label>{{item.label}}</label>
+                <input [formControlName]="item.control" />
+            </div>
+            <input type="submit" value="Submit Behaviour" />
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of formArray">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="grid-item">
+        <form [formGroup]="myForm2" (ngSubmit)="onSubmitSignal()">
+            <div *ngFor="let item of buildFormSignal();trackBy: trackByName1">
+                
+                    <label>{{item.label}}</label>
+                    <input [formControlName]="item.control" />
+                </div>
+            
+            <input type="submit" value="Submit Signal" />
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of formArraySignal()">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
